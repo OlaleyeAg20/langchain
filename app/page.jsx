@@ -93,7 +93,15 @@ export default function Home() {
   " description="Each gift is minted as an NFT on our decentralized protocol, creating a permanent, tamper-proof record." link="#"  />
       </div>
       <div className={styles.herosection2}>
-        <div></div>
+        <div>
+          <h3>Say goodbye to gift chaos this year</h3>
+          <p>No need to worry about your gift being lost or delivered to the wrong child. We’ll handle every single one.</p>
+          <div>
+            <Groupedimage images={["holly.png", "ivy.png", "jasper.png"]} />
+            <span>More than 10,000 elfs have tried</span>
+          </div>
+          <Button className='buttonemptied'>Try for free</Button>
+        </div>
         <Image src='/images/dashboard.png' width={1087} height={687} alt='Dashboard Image' /> 
       </div>
     </>

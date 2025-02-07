@@ -156,7 +156,77 @@
 }
 
 .herosection2{
-  
+  background: #F2F2FF;
+  display: flex;
+  color: var(--text);
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 3rem 2rem;
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.herosection2::after{
+  content: '';
+  width: calc(100% / 3);
+  height: 120%;
+  background: var(--red);
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-bottom-left-radius: 100%;
+  z-index: -1;
+}
+
+.herosection2 h3{
+  color: #470000;
+  -webkit-text-stroke-width: 1;
+  -webkit-text-stroke-color: #FFF2F2;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+  letter-spacing: 0.26px;
+}
+
+.herosection2 > img {
+  width: 100%;
+  max-width: 720px;
+  height: auto;
+  border-radius: 1rem;
+}
+
+.herosection2 > div{
+  width: 100%;
+  max-width: 360px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 32px;
+}
+
+.herosection2 > div p, .herosection2 > div span{
+  color: var(--grey);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 170%;
+  letter-spacing: -0.408px;
+}
+
+.herosection2 > div span{
+  color: #343434;
+  font-weight: 600;
+}
+
+.herosection2 > div > div{
+  display: flex;
+  align-items: center;
+  gap: .5rem;
 }
 
 @media (max-width: 720px) {
@@ -170,5 +240,24 @@
 
   .header button{
     display: none;
+  }
+
+  .herosection2{
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .herosection2 > *{
+    width: 98%!important;
+  }
+
+  .herosection2::after{
+    display: none;
+  }
+
+  .herosection2 > div span{
+    color: #343434;
+    font-weight: 600;
+    font-size: 12px;
   }
 }
