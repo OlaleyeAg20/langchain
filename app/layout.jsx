@@ -1,13 +1,8 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Be_Vietnam_Pro, Inter } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const be_vietnam_pro = Be_Vietnam_Pro({
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
   subsets: ["latin"],
 });
 
@@ -19,7 +14,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className={be_vietnam_pro.className}>
         {children}
       </body>
     </html>

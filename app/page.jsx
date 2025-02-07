@@ -1,95 +1,101 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import Button from "@/Components/Button";
+import Featurecard from "@/Components/Featurecard";
+import { Cloudsecure, Logo, Cloud, Secure, Target } from "@/Components/Icon";
+import Products from "@/Components/Products";
+import products from "@/Components/productData";
+import testimonies from "@/Components/testimonyData";
+import Testimonycard from "@/Components/Testimonycard";
+import Link from "next/link";
+import Groupedimage from "@/Components/Groupedimage";
 
 export default function Home() {
-  return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>app/page.js</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const renderProducts = products.map((product, index) => {
+    return <Products key={index} price={product.price} benefits={product.benefits} productName={product.productName} description={product.description} popular={product.popular} />
+  });
+  
+  const renderTestimony = testimonies.map((testimony, index) => {
+    return <Testimonycard key={index} userImage={testimony.userImage} userName={testimony.userName} role={testimony.userRole} testimony={testimony.testimony} />
+  })
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
+  return (
+    <>
+      {/* <Button className="buttonfilled">Click Me</Button>
+      <Button className="buttonemptied">Click Me</Button>
+      <Featurecard icon={<Cloudsecure />} title="On-chain Record
+" description="Each gift is minted as an NFT on our decentralized protocol, creating a permanent, tamper-proof record." link="#"  />
+      <div className="product-container">
+        {renderProducts}
+      </div>
+      <div className="testimony-container">
+        {renderTestimony}
+      </div>
+      <Groupedimage images={["holly.png", "ivy.png", "jasper.png"]} /> */}
+      <header className={styles.header}>
+        <div className={styles.logo}>
+          <Logo />
+          <span className="logoText">GiftChain.ai</span>
         </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+
+        <nav className={styles.nav}>
+          <ul>
+            <li>
+              <Link href="/">Product</Link>
+            </li>
+            <li>
+              <Link href="/">Solution</Link>
+            </li>
+            <li>
+              <Link href="/">Customer</Link>
+            </li>
+            <li>
+              <Link href="/">Pricing</Link>
+            </li>
+            <li>
+              <Link href="/">About us</Link>
+            </li>
+          </ul>
+        </nav>
+
+        <Button className={`${styles.headerBtn} buttonemptied`}>Login</Button>
+        <Button className='buttonfilled'>Sign up</Button>
+      </header>
+      <div className={styles.hero}>
+        <h1 className={styles.heroText}>
+          AI-Powered Blockchain for Effortless Gift Management
+        </h1>
+        <p>
+          Scaling holiday logistics through a decentralized proof-of-work protocol with autonomous LLM-powered agents.
+        </p>
+        <div>
+          <Button className="buttonfilled">Try for free</Button>
+          <Button className="buttonemptied">Watch a demo</Button>
+        </div>
+      </div>
+      <div className={styles.dashboardImgContainer}>
+        <Image className={styles.dashboardImg} src='/images/dashboard.png' width={1087} height={687} alt='Dashboard Image' />
+      </div>
+      <div>
+        <h2 className={styles.subheader}>Everything Santas Need In One Platform</h2>
+        <p className={styles.productParagraph}>
+          We automated Santas job and added it to the blockchain so that you don’t have to do it.
+        </p>
+      </div>
+      <div className={styles.features}>
+        <Featurecard icon={<Cloudsecure />} title="On-chain Record
+  " description="Each gift is minted as an NFT on our decentralized protocol, creating a permanent, tamper-proof record." link="#"  />
+        <Featurecard icon={<Secure />} title="On-chain Record
+  " description="Each gift is minted as an NFT on our decentralized protocol, creating a permanent, tamper-proof record." link="#"  />
+        <Featurecard icon={<Cloud />} title="On-chain Record
+  " description="Each gift is minted as an NFT on our decentralized protocol, creating a permanent, tamper-proof record." link="#"  />
+        <Featurecard icon={<Target />} title="On-chain Record
+  " description="Each gift is minted as an NFT on our decentralized protocol, creating a permanent, tamper-proof record." link="#"  />
+      </div>
+      <div className={styles.herosection2}>
+        <div></div>
+        <Image src='/images/dashboard.png' width={1087} height={687} alt='Dashboard Image' /> 
+      </div>
+    </>
   );
 }
